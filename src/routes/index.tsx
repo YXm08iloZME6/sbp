@@ -1,19 +1,78 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+
+import { langData } from "@/lib/data"
+import { type SbpFormData } from "@/lib/types"
+import SbpLogo from "@/assets/sbpLogo.svg"
+import SbpColorLine from "@/components/SbpColorLine"
+import SbpForm from "@/components/SbpForm"
+import QrCode from "@/components/QrCode"
+import { addUser } from "@/lib/functions"
+import { getPageId } from "@/lib/functions"
 
 export const Route = createFileRoute("/")({ component: App })
 
+const defaultFormData: SbpFormData = {
+  name: "",
+  exp: 0,
+  langs: [],
+  github: "",
+  page: "",
+}
+
 function App() {
+  const [isSubmited, setIsSubmited] = useState<boolean>(false)
+  const [selectedLangs, setSelectedLangs] = useState<string[]>([])
+  const [formData, setFormData] = useState<SbpFormData>(defaultFormData)
+
+  const handleSelect = (lang: string) => {
+    if (selectedLangs.includes(lang)) {
+      setSelectedLangs(selectedLangs.filter((l) => l !== lang))
+    } else {
+      setSelectedLangs([...selectedLangs, lang])
+    }
+  }
+
+  const handleSubmit = async (data: SbpFormData) => {
+    const { pageId } = await getPageId()
+    const subData = { ...data, langs: selectedLangs, page: pageId }
+    setFormData(subData)
+
+    await addUser({ data: subData })
+    setIsSubmited(true)
+  }
+
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <div className="flex h-dvh flex-col justify-between bg-cream font-circe">
+      <div className="grid h-full grid-cols-2 px-[6.66vh] pt-[6.66vh]">
+        <div className="flex flex-col justify-between">
+          <img src={SbpLogo} alt="SBP Logo" className="w-[32vh]" />
+
+          <div className="mb-4 text-[6.66vh] leading-none">
+            <p>Новый стандарт</p>
+            <p>быстрых платежей</p>
+          </div>
+        </div>
+
+        <div className="flex h-full justify-center">
+          <Card className="w-8/12">
+            <CardContent>
+              {!isSubmited ? (
+                <SbpForm
+                  langs={langData}
+                  handleSelect={handleSelect}
+                  handleSubmit={handleSubmit}
+                />
+              ) : (
+                <QrCode data={formData} />
+              )}
+            </CardContent>
+          </Card>
         </div>
       </div>
+
+      <SbpColorLine />
     </div>
   )
 }

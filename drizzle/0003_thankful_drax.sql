@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "sendEmail" boolean NOT NULL;
