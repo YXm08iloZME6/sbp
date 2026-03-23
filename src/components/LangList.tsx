@@ -8,7 +8,7 @@ interface LangListProps {
 
 export default function LangList({ langs, handleToggle }: LangListProps) {
   return (
-    <div className="flex flex-wrap justify-center gap-2 2xl:gap-4 2xl:px-8">
+    <div className="flex flex-wrap justify-center gap-2 2xl:gap-4 2xl:px-4">
       {langs.map((lang) => {
         return (
           <motion.div
@@ -22,7 +22,7 @@ export default function LangList({ langs, handleToggle }: LangListProps) {
               aria-label={lang}
               onPressedChange={() => handleToggle(lang)}
               size="lg"
-              className="cursor-pointer 2xl:h-15 2xl:text-2xl"
+              className="cursor-pointer 2xl:h-12 2xl:text-2xl"
             >
               {lang}
             </Toggle>
