@@ -10,8 +10,7 @@ import SbpColorLine from "@/components/SbpColorLine"
 import SbpForm from "@/components/SbpForm"
 import QrCode from "@/components/QrCode"
 import ImageGen from "@/components/ImageGen"
-import { addUser } from "@/lib/functions"
-import { getPageId } from "@/lib/functions"
+import { addUser, getPageId } from "@/lib/functions"
 
 export const Route = createFileRoute("/")({ component: App })
 

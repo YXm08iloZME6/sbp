@@ -15,10 +15,10 @@ export default function LangList({ langs, handleToggle }: LangListProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 5 }}
+            key={lang}
           >
             <Toggle
               variant="outline"
-              key={lang}
               aria-label={lang}
               onPressedChange={() => handleToggle(lang)}
               size="lg"

@@ -163,7 +163,11 @@ export default function SpbForm({
                       min={0}
                       max={20}
                       step={1}
-                      onValueChange={(value) => field.handleChange(value)}
+                      onValueChange={(value) =>
+                        field.handleChange(
+                          Array.isArray(value) ? value[0] : value
+                        )
+                      }
                     />
                   </Field>
                 )

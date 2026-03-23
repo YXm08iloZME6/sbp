@@ -62,7 +62,7 @@ export const userQueryOptions = (id: string) =>
 
 export const getPageId = createServerFn({ method: "POST" }).handler(
   async () => {
-    const pageId = `${nanoid(6)}`
+    const pageId = nanoid(6)
     return { pageId }
   }
 )
@@ -91,6 +91,5 @@ export const generateImage = createServerFn({ method: "GET" })
     )
 
     const imageData = await response.json()
-    console.log(imageData)
     return imageData.data[0].url
   })
