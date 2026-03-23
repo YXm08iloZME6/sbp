@@ -5,4 +5,5 @@ export type SbpFormData = {
   github?: string
   exp: number
   page?: string
+  sendEmail: boolean
 }

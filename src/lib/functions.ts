@@ -66,3 +66,31 @@ export const getPageId = createServerFn({ method: "POST" }).handler(
     return { pageId }
   }
 )
+
+export const generateImage = createServerFn({ method: "GET" })
+  .inputValidator(userInsertSchema)
+  .handler(async ({ data }) => {
+    const formData = new FormData()
+    formData.append(
+      "prompt",
+      `a software developer that loves ${data.langs.join()}. He has ${data.exp} years of experience. His name is ${data.name}`
+    )
+    formData.append("model", "google/nano-banana-2:free")
+    formData.append("quality", "auto")
+    formData.append("size", "512x512")
+
+    const response = await fetch(
+      "https://api.imagerouter.io/v1/openai/images/edits",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.IMAGEROUTER_API_KEY}`,
+        },
+        body: formData,
+      }
+    )
+
+    const imageData = await response.json()
+    console.log(imageData)
+    return imageData.data[0].url
+  })

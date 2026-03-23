@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { Card, CardContent } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 
 import { langData } from "@/lib/data"
 import { type SbpFormData } from "@/lib/types"
@@ -8,6 +9,7 @@ import SbpLogo from "@/assets/sbpLogo.svg"
 import SbpColorLine from "@/components/SbpColorLine"
 import SbpForm from "@/components/SbpForm"
 import QrCode from "@/components/QrCode"
+import ImageGen from "@/components/ImageGen"
 import { addUser } from "@/lib/functions"
 import { getPageId } from "@/lib/functions"
 
@@ -19,6 +21,7 @@ const defaultFormData: SbpFormData = {
   langs: [],
   github: "",
   page: "",
+  sendEmail: false,
 }
 
 function App() {
@@ -65,7 +68,12 @@ function App() {
                   handleSubmit={handleSubmit}
                 />
               ) : (
-                <QrCode data={formData} />
+                <Suspense
+                  fallback={<Skeleton className="aspect-video w-full" />}
+                >
+                  <ImageGen data={formData} />
+                </Suspense>
+                // <QrCode data={formData} />
               )}
             </CardContent>
           </Card>

@@ -8,7 +8,7 @@ export const users = pgTable("users", {
   email: varchar({ length: 255 }),
   github: varchar({ length: 255 }),
   exp: integer().notNull(),
-  page: varchar({ length: 255 }).notNull(),
+  page: varchar({ length: 255 }),
   sendEmail: boolean().notNull(),
 })
 
