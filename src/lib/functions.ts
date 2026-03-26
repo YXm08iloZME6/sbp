@@ -26,7 +26,7 @@ const sendEmail = createServerFn({ method: "POST" })
   )
   .handler(async ({ data }) => {
     const { error } = await resend.emails.send({
-      from: "SBP <onboarding@resend.dev>",
+      from: "SBP <onboarding@mail.sbptest.ru>",
       to: [data.email],
       subject: data.subject,
       text: data.message,
@@ -73,11 +73,11 @@ export const generateImage = createServerFn({ method: "GET" })
     const formData = new FormData()
     formData.append(
       "prompt",
-      `a software developer that loves ${data.langs.join()}. He has ${data.exp} years of experience. His name is ${data.name}`
+      `A chaotic, square-format photograph of a frazzled software developer named ${data.name}. He is wearing a handmade t-shirt with messy, marker-written text that reads: "I have ${data.exp} years of experience and I still spend 90% of my time Googling syntaxes for ${data.langs.join()}." He is frantically typing on a keyboard while a pet cat is sitting on his head. On his desk, in front of five cluttered monitors displaying scrolling errors, is a small, glowing neon sign shaped like a radioactive octocat that reads: "@${data.github}". The desk is buried under a mountain of empty energy drink cans and sticky notes. He looks both terrified and triumphant. Wide-angle lens, exaggerated comedic realism, warm, messy, office lighting.`
     )
     formData.append("model", "google/nano-banana-2:free")
     formData.append("quality", "auto")
-    formData.append("size", "512x512")
+    formData.append("size", "auto")
 
     const response = await fetch(
       "https://api.imagerouter.io/v1/openai/images/edits",

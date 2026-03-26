@@ -40,7 +40,7 @@ export default function SpbForm({
     <>
       <CardContent>
         <Field>
-          <FieldLabel className="2xl:text-2xl" htmlFor="langs">
+          <FieldLabel className="3xl:text-2xl" htmlFor="langs">
             Любимые языки
           </FieldLabel>
           <LangList langs={langs} handleToggle={handleSelect} />
@@ -54,13 +54,13 @@ export default function SpbForm({
           }}
         >
           <FieldGroup>
-            <div className="flex flex-col gap-4 2xl:gap-6">
+            <div className="flex flex-col gap-4 3xl:gap-6">
               <form.Field
                 name="name"
                 children={(field) => {
                   return (
                     <Field>
-                      <FieldLabel className="2xl:text-2xl" htmlFor={field.name}>
+                      <FieldLabel className="3xl:text-2xl" htmlFor={field.name}>
                         Имя
                       </FieldLabel>
                       <Input
@@ -71,7 +71,7 @@ export default function SpbForm({
                         onChange={(e) => field.handleChange(e.target.value)}
                         placeholder="John Doe"
                         autoComplete="off"
-                        className="bg-cream 2xl:h-15"
+                        className="bg-cream 3xl:h-15"
                         // style={{ fontSize: "24px" }}
                       />
                     </Field>
@@ -83,7 +83,7 @@ export default function SpbForm({
                 children={(field) => {
                   return (
                     <Field>
-                      <FieldLabel className="2xl:text-2xl" htmlFor={field.name}>
+                      <FieldLabel className="3xl:text-2xl" htmlFor={field.name}>
                         GitHub @
                       </FieldLabel>
                       <Input
@@ -94,7 +94,7 @@ export default function SpbForm({
                         onChange={(e) => field.handleChange(e.target.value)}
                         placeholder="johndoe"
                         autoComplete="off"
-                        className="bg-cream 2xl:h-15"
+                        className="bg-cream 3xl:h-15"
                         // style={{ fontSize: "24px" }}
                       />
                     </Field>
@@ -106,7 +106,7 @@ export default function SpbForm({
                 children={(field) => {
                   return (
                     <Field>
-                      <FieldLabel className="2xl:text-2xl" htmlFor={field.name}>
+                      <FieldLabel className="3xl:text-2xl" htmlFor={field.name}>
                         Почта
                       </FieldLabel>
                       <Input
@@ -117,7 +117,7 @@ export default function SpbForm({
                         onChange={(e) => field.handleChange(e.target.value)}
                         placeholder="johndoe@gmail.com"
                         autoComplete="off"
-                        className="bg-cream 2xl:h-15"
+                        className="bg-cream 3xl:h-15"
                         // style={{ fontSize: "24px" }}
                       />
                     </Field>
@@ -136,9 +136,9 @@ export default function SpbForm({
                         onCheckedChange={(checked) =>
                           field.handleChange(checked === true)
                         }
-                        className="2xl:h-8 2xl:w-8"
+                        className="3xl:h-8 3xl:w-8"
                       />
-                      <FieldLabel className="2xl:text-lg" htmlFor={field.name}>
+                      <FieldLabel className="3xl:text-lg" htmlFor={field.name}>
                         Отправить мне на почту
                       </FieldLabel>
                     </Field>
@@ -152,10 +152,10 @@ export default function SpbForm({
                 return (
                   <Field>
                     <div className="mt-2 flex items-center justify-between gap-2">
-                      <FieldLabel className="2xl:text-2xl" htmlFor={field.name}>
+                      <FieldLabel className="3xl:text-2xl" htmlFor={field.name}>
                         Опыт
                       </FieldLabel>
-                      <span className="text-muted-foreground 2xl:text-2xl">
+                      <span className="text-muted-foreground 3xl:text-2xl">
                         {field.state.value}
                       </span>
                     </div>
@@ -177,7 +177,7 @@ export default function SpbForm({
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="mt-4 bg-card 2xl:mt-8">
+      <CardFooter className="mt-4 bg-card 3xl:mt-8">
         <Field orientation="horizontal" className="mt-2 flex justify-center">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -192,7 +192,7 @@ export default function SpbForm({
               type="submit"
               form="sbp-form"
               variant="outline"
-              className="rounded-2xl bg-cream text-foreground uppercase 2xl:h-16 2xl:text-2xl"
+              className="rounded-2xl bg-cream text-foreground uppercase 3xl:h-16 3xl:text-2xl"
             >
               Отправить
             </Button>

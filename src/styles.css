@@ -16,6 +16,8 @@
   --color-purple: rgb(143, 71, 148);
   --color-violet: rgb(91, 87, 162);
   --color-cream: rgb(245, 241, 232);
+
+  --breakpoint-3xl: 121rem;
 }
 
 @font-face {

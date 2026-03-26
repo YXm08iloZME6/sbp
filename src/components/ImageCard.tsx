@@ -20,11 +20,11 @@ export default function ImageGen({ data }: { data: SbpFormData }) {
         </div>
 
         <div className="w-full text-center">
-          <p className="text-3xl font-medium text-[#1A1A1A] 2xl:text-5xl">
+          <p className="text-3xl font-medium text-[#1A1A1A] 3xl:text-5xl">
             {data.name}
           </p>
           <div>
-            <p className="mt-4 text-xl font-bold tracking-wider text-black uppercase opacity-60 2xl:mt-8 2xl:text-2xl">
+            <p className="mt-4 text-xl font-bold tracking-wider text-black uppercase opacity-60 3xl:mt-8 3xl:text-2xl">
               GitHub
             </p>
             <p className="mt-1 text-2xl font-medium break-all text-[#1A1A1A]">
@@ -32,8 +32,8 @@ export default function ImageGen({ data }: { data: SbpFormData }) {
             </p>
           </div>
 
-          <div className="mt-4 2xl:mt-12">
-            <p className="texlt-xl mb-2 font-bold tracking-wider text-black uppercase opacity-60 2xl:text-2xl">
+          <div className="mt-4 3xl:mt-12">
+            <p className="texlt-xl mb-2 font-bold tracking-wider text-black uppercase opacity-60 3xl:text-2xl">
               Любимые языки
             </p>
             <div className="mt-4 mb-4 flex flex-wrap justify-center gap-4">
